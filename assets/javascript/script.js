@@ -32,25 +32,25 @@ function checkValidation() {
   let message_val = message.value
 
   if (
-    !isEmpty(name_val) ||
-    !isEmpty(email_val) ||
-    !isEmpty(phone_val) ||
-    !isEmpty(message_val)
+    isEmpty(name_val) ||
+    isEmpty(email_val) ||
+    isEmpty(phone_val) ||
+    isEmpty(message_val)
   ) {
-    error += 'You should fill all the fields/n'
+    error += 'You should fill all the fields\r\n'
   }
   if (name_val.length < 5) {
-    error += 'Name is short!/n'
+    error += 'Name is short!\r\n'
   }
 
   if (email_val.includes('@')) {
     let splitted_str = email.value.split('@')
 
     if (splitted_str[0].length < 3 || splitted_str[1].length < 5) {
-      error += 'Email is short!/n'
+      error += 'Email is short!\r\n'
     }
   } else {
-    error += 'Email is not valid/n'
+    error += 'Email is not valid\r\n'
   }
 
   if (
@@ -68,14 +68,14 @@ function checkValidation() {
     ) {
       console.log('valid')
     } else {
-      error += 'Invalid number/n'
+      error += 'Invalid number\r\n'
     }
   } else {
-    error += 'Invalid number/n'
+    error += 'Invalid number\r\n'
   }
 
   if (message_val.length < 100) {
-    error += 'Message is short/n'
+    error += 'Message is short\r\n'
   }
 
   if (!isEmpty(error)) {
