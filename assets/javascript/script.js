@@ -7,6 +7,12 @@ const phone = document.querySelector('#phone')
 const message = document.querySelector('#message')
 const contact_div = document.querySelector('#contact-head')
 
+new_div = document.createElement('div')
+// contact_div.appendChild(new_div)
+contact_div.parentNode.insertBefore(new_div, contact_div.nextSibling)
+new_div.classList.add('error')
+new_div.style.display = 'none'
+
 //validation
 
 //form submit
@@ -73,10 +79,7 @@ function checkValidation() {
   }
 
   if (!isEmpty(error)) {
-    new_div = document.createElement('div')
-    // contact_div.appendChild(new_div)
-    contact_div.parentNode.insertBefore(new_div, contact_div.nextSibling)
     new_div.textContent = error
-    new_div.classList.add('error')
+    new_div.style.display = 'block'
   }
 }
