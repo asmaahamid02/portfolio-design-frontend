@@ -5,3 +5,77 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: montserrat;
+  src: url('/assets/fonts/montserrat.woff2');
+}
+
+body {
+  width: 100%;
+  font-family: montserrat;
+}
+
+.header {
+  width: 100%;
+  padding: 30px 100px;
+}
+
+.inner-container .header {
+  background-color: #212529;
+}
+
+.container .header {
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+  display: flex;
+}
+
+.container .header a {
+  color: #212529;
+}
+.links {
+  list-style: none;
+  display: flex;
+}
+
+.link-item {
+  margin-right: 20px;
+}
+
+.links > li:last-child {
+  margin-right: 0;
+}
+
+.link-item > a,
+.logo > a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.link-item > a:hover {
+  color: #1abc9c;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+}
+
+.navlist {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logo {
+  margin-right: 20px;
+  flex: 1;
+}
+
+.navlist .links {
+}
