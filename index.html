@@ -21,8 +21,6 @@
                 <li class="link-item"><a href="#">Mobile</a></li>
             </ul>
         </div>
-
-
     </div>
     <div class="inner-container">
         <div class="header">
@@ -111,7 +109,7 @@
                 <div class="line black-back-color"></div>
             </div>
             <div class="form-container">
-                <form action="">
+                <form id="form">
                     <div class="input-container">
                         <input type="text" name="fullName" id="fullName" class="input" placeholder="" />
                         <label for="fullName">Full name</label>
@@ -128,7 +126,7 @@
                         <textarea name="message" id="message" class="textarea input" placeholder=""></textarea>
                         <label for="phone">Message</label>
                     </div>
-                    <button class="btn btn-fill">Send</button>
+                    <button type="button" class="btn btn-fill" onclick="checkValidation()">Send</button>
                 </form>
             </div>
         </div>
@@ -171,6 +169,8 @@
             <small>Copyright © Your Website 2022</small>
         </div>
     </div>
+
+    <script src="./assets//javascript/script.js"></script>
 </body>
 
 </html>
