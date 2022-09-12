@@ -5,6 +5,7 @@ const full_name = document.querySelector('#fullName')
 const email = document.querySelector('#email')
 const phone = document.querySelector('#phone')
 const message = document.querySelector('#message')
+const contact_div = document.querySelector('#contact-head')
 
 //validation
 
@@ -30,20 +31,20 @@ function checkValidation() {
     !isEmpty(phone_val) ||
     !isEmpty(message_val)
   ) {
-    error = 'You should fill all the fields'
+    error += 'You should fill all the fields/n'
   }
   if (name_val.length < 5) {
-    error = 'Name is short!'
+    error += 'Name is short!/n'
   }
 
   if (email_val.includes('@')) {
     let splitted_str = email.value.split('@')
 
     if (splitted_str[0].length < 3 || splitted_str[1].length < 5) {
-      error = 'Email is short!'
+      error += 'Email is short!/n'
     }
   } else {
-    error = 'Email is not valid'
+    error += 'Email is not valid/n'
   }
 
   if (
@@ -61,13 +62,21 @@ function checkValidation() {
     ) {
       console.log('valid')
     } else {
-      error = 'Invalid number'
+      error += 'Invalid number/n'
     }
   } else {
-    error = 'Invalid number'
+    error += 'Invalid number/n'
   }
 
   if (message_val.length < 100) {
-    error = 'Message is short'
+    error += 'Message is short/n'
+  }
+
+  if (!isEmpty(error)) {
+    new_div = document.createElement('div')
+    // contact_div.appendChild(new_div)
+    contact_div.parentNode.insertBefore(new_div, contact_div.nextSibling)
+    new_div.textContent = error
+    new_div.classList.add('error')
   }
 }
