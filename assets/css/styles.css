@@ -233,6 +233,7 @@ body {
   font-size: 1.25rem;
   padding: 1rem 1.75rem;
   cursor: pointer;
+  border: none;
   border-radius: 0.5rem;
   font-weight: 400;
   color: #fff;
@@ -253,6 +254,72 @@ body {
 
 .btn-outline:hover .fa {
   color: #000 !important;
+}
+
+.contact {
+  width: 100%;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+form {
+  display: block;
+  width: 66.66%;
+  flex: 0 0 auto;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  background-color: #fff;
+  color: #2c3e50;
+  border: none;
+  border-bottom: 0.125rem solid #ced4da;
+  padding: 1.5rem 0;
+  line-height: 1.5rem;
+  outline: none;
+}
+
+input.input {
+  height: 5.5rem;
+}
+
+textarea.textarea {
+  height: 10rem;
+}
+
+.input-container > label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.5rem;
+  color: #6c757d;
+  height: 100%;
+  padding: 1.25rem 0;
+  transition: 0.5s;
+}
+
+.input:focus + label {
+  top: -7px;
+  left: 3px;
+  z-index: 10;
+  font-size: 1rem;
+  color: #adb5bd;
+}
+
+.btn-fill {
+  background-color: #1abc9c;
+  border-color: #1abc9c;
 }
 
 /* Media Query */
