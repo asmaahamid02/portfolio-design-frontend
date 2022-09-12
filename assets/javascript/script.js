@@ -1,0 +1,3 @@
+/* JS */
+
+window.addEventListener('load', () => {})
