@@ -16,9 +16,9 @@ new_div.style.display = 'none'
 //validation
 
 //form submit
-form.addEventListener('submit', (e) => {
-  e.preventDefault()
-})
+// form.addEventListener('submit', (e) => {
+//   e.preventDefault()
+// })
 
 function isEmpty(str) {
   return !str.trim().length
@@ -81,5 +81,10 @@ function checkValidation() {
   if (!isEmpty(error)) {
     new_div.textContent = error
     new_div.style.display = 'block'
+    return false
+  } else {
+    new_div.textContent = ''
+    new_div.style.display = 'none'
+    return false
   }
 }
