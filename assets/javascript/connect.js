@@ -31,8 +31,7 @@ const save_message = async () => {
   }
 }
 
-const api =
-  'http://localhost/portfolio-design-frontend/api/save_message_api.php'
+const api = 'http://localhost/portfolio-design-frontend/api/'
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
@@ -43,9 +42,17 @@ form.addEventListener('submit', (e) => {
   let message_val = message.value
 
   const data = {}
+  let error = checkValidation(name_val, email_val, phone_val, message_val)
 
-  if (checkValidation()) {
-    fetch(api, {
+  if (!isEmpty(error)) {
+    new_div.textContent = error
+    new_div.style.display = 'block'
+    return
+  } else {
+    new_div.textContent = ''
+    new_div.style.display = 'none'
+    console.log(api + 'save_message_api.php')
+    fetch(api + 'save_message_api.php', {
       method: 'POST',
       body: new URLSearchParams({
         full_name: name_val,
@@ -53,12 +60,12 @@ form.addEventListener('submit', (e) => {
         phone: phone_val,
         message: message_val,
       }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
+      // headers: {
+      //   'Content-type': 'application/json; charset=UTF-8',
+      // },
     })
       .then((response) => response.json())
       .then((data) => console.log(data.success))
-      .catch((error) => console.log('Error:', error))
+      .catch((error) => console.error('Error:', error))
   }
 })
