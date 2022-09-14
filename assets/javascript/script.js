@@ -1,36 +1,23 @@
 /* JS */
 
 const form = document.querySelector('#form')
-const full_name = document.querySelector('#fullName')
+const full_name = document.querySelector('#full_name')
 const email = document.querySelector('#email')
 const phone = document.querySelector('#phone')
 const message = document.querySelector('#message')
 const contact_div = document.querySelector('#contact-head')
 
 new_div = document.createElement('div')
-// contact_div.appendChild(new_div)
 contact_div.parentNode.insertBefore(new_div, contact_div.nextSibling)
 new_div.classList.add('error')
 new_div.style.display = 'none'
-
-//validation
-
-//form submit
-form.addEventListener('submit', (e) => {
-  e.preventDefault()
-})
 
 function isEmpty(str) {
   return !str.trim().length
 }
 
-function checkValidation() {
+function checkValidation(name_val, email_val, phone_val, message_val) {
   let error = ''
-  let name_val = full_name.value
-  let email_val = email.value
-  let phone_val = phone.value
-  let message_val = message.value
-
   if (
     isEmpty(name_val) ||
     isEmpty(email_val) ||
@@ -66,7 +53,7 @@ function checkValidation() {
         number.startsWith('70')) &&
         number.length == 8)
     ) {
-      console.log('valid')
+      // console.log('valid')
     } else {
       error += 'Invalid number\r\n'
     }
@@ -78,8 +65,12 @@ function checkValidation() {
     error += 'Message is short\r\n'
   }
 
-  if (!isEmpty(error)) {
-    new_div.textContent = error
-    new_div.style.display = 'block'
-  }
+  return error
 }
+
+//move to the messages page
+let view_messages_btn = document.querySelector('#view-messages')
+
+view_messages_btn.addEventListener('click', () => {
+  window.location.href = '../view_messages.html'
+})

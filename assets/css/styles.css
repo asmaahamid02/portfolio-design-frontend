@@ -14,6 +14,7 @@
 body {
   width: 100%;
   font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
 }
 
 .header {
@@ -64,8 +65,12 @@ body {
 .navbar {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
+#nav-btn {
+  display: none;
+}
 .navlist {
   flex: 1;
   display: flex;
@@ -418,12 +423,78 @@ small {
   padding: 1rem;
   margin: 1rem 0;
 }
+
+.success {
+  font-size: 1rem;
+  color: #fff;
+  background-color: green;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.table-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.table {
+  width: 100%;
+  /* padding: 1rem; */
+  border: 1px solid #2c3e50;
+}
+
+.table-head th {
+  background-color: #2c3e50;
+  padding: 2rem 0;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  width: 15%;
+}
+
+.table-head th:last-child {
+  width: 60%;
+}
+
+td {
+  padding: 1.5rem 0.75rem;
+  text-align: center;
+  background-color: #15967d;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+}
 /* Media Query */
 
 @media only screen and (max-width: 990px) {
   /*tablets*/
   .card {
     width: 50%;
+  }
+
+  .table-head th {
+    width: 10%;
+    font-size: 0.95rem;
+  }
+
+  .table-head th:last-child {
+    width: 70%;
+  }
+  td {
+    font-size: 0.75rem;
+  }
+  .logo > a {
+    font-size: 20px;
+  }
+
+  #nav-btn {
+    display: block;
+  }
+  .links {
+    display: none;
   }
 }
 

@@ -29,6 +29,8 @@
                     <a href="#" class="logo-link">start bootstrap</a>
                 </div>
                 <div class="navlist">
+                    <button type="button" id="nav-btn" class="btn btn-fill" onclick=""><i class="fa fa-list"></i>
+                        Menu</button>
                     <ul class="links">
                         <li class="link-item"><a href="#">portfolio</a></li>
                         <li class="link-item"><a href="#">about</a></li>
@@ -111,7 +113,7 @@
             <div class="form-container">
                 <form id="form">
                     <div class="input-container">
-                        <input type="text" name="fullName" id="fullName" class="input" placeholder="a" />
+                        <input type="text" name="full_name" id="full_name" class="input" placeholder="a" />
                         <label for="fullName">Full name</label>
                     </div>
                     <div class="input-container">
@@ -126,7 +128,8 @@
                         <textarea name="message" id="message" class="textarea input" placeholder="a"></textarea>
                         <label for="phone">Message</label>
                     </div>
-                    <button type="button" class="btn btn-fill" onclick="checkValidation()">Send</button>
+                    <button type="submit" class="btn btn-fill" onclick="">Send</button>
+                    <button type="button" id="view-messages" class="btn btn-fill" onclick="">View Messages</button>
                 </form>
             </div>
         </div>
@@ -170,7 +173,8 @@
         </div>
     </div>
 
-    <script src="./assets//javascript/script.js"></script>
+    <script src="./assets/javascript/script.js"></script>
+    <script src="./assets//javascript/connect.js"></script>
 </body>
 
 </html>
