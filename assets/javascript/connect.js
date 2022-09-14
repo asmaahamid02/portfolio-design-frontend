@@ -44,13 +44,12 @@ form.addEventListener('submit', (e) => {
   const data = {}
   let error = checkValidation(name_val, email_val, phone_val, message_val)
 
+  new_div.style.display = 'block'
   if (!isEmpty(error)) {
     new_div.textContent = error
-    new_div.style.display = 'block'
+    // new_div.style.display = 'block'
     return
   } else {
-    new_div.textContent = ''
-    new_div.style.display = 'none'
     console.log(api + 'save_message_api.php')
     fetch(api + 'save_message_api.php', {
       method: 'POST',
@@ -65,7 +64,24 @@ form.addEventListener('submit', (e) => {
       // },
     })
       .then((response) => response.json())
-      .then((data) => console.log(data.success))
+      .then((data) => {
+        console.log(data.success)
+        if (data.success) {
+          new_div.classList.remove('error')
+          new_div.classList.add('success')
+          new_div.textContent = 'Message sent successfully'
+          // close the div in 5 secs
+          window.setTimeout('closeHelpDiv(new_div);', 5000)
+        } else {
+          new_div.textContent = 'Something went wrong, try again'
+          // close the div in 5 secs
+          window.setTimeout('closeHelpDiv(new_div);', 5000)
+        }
+      })
       .catch((error) => console.error('Error:', error))
   }
 })
+
+function closeHelpDiv(element) {
+  element.style.display = ' none'
+}
