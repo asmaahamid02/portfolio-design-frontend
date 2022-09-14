@@ -1,21 +1,29 @@
 // const form = document.querySelector('#form')
 
-const save_message = async (formData) => {
+// const full_name = document.querySelector('#full_name')
+// const email = document.querySelector('#email')
+// const phone = document.querySelector('#phone')
+// const message = document.querySelector('#message')
+
+// const form_data = (data) => {
+//   let formData = new FormData()
+//   data.forEach((col) => {})
+// }
+const save_message = async () => {
   try {
     const res = await fetch(
       'http://localhost/portfolio-design-frontend/api/save_message_api.php',
       {
         method: 'POST',
-        cache: 'no-cache',
-        cors: 'no-cors',
-        credentials: 'same-origin',
+        // cache: 'no-cache',
+        // cors: 'no-cors',
+        // credentials: 'same-origin',
         headers: {
-          'Content-Type': 'form-data',
+          'Content-Type': 'application/json',
         },
-        body: formData,
+        body: JSON.stringify(data),
       }
     )
-    // .then(response => response.json())
     // const content = await res.json()
     return res
   } catch (error) {
@@ -23,11 +31,34 @@ const save_message = async (formData) => {
   }
 }
 
+const api =
+  'http://localhost/portfolio-design-frontend/api/save_message_api.php'
+
 form.addEventListener('submit', (e) => {
   e.preventDefault()
 
-  //   if (checkValidation()) {
-  let formData = new URLSearchParams(new FormData(form))
-  save_message(formData).then((response) => console.log(response))
-  //   }
+  let name_val = full_name.value
+  let email_val = email.value
+  let phone_val = phone.value
+  let message_val = message.value
+
+  const data = {}
+
+  if (checkValidation()) {
+    fetch(api, {
+      method: 'POST',
+      body: new URLSearchParams({
+        full_name: name_val,
+        email: email_val,
+        phone: phone_val,
+        message: message_val,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data.success))
+      .catch((error) => console.log('Error:', error))
+  }
 })
