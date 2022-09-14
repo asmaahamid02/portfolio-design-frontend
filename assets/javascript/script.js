@@ -1,7 +1,7 @@
 /* JS */
 
 const form = document.querySelector('#form')
-const full_name = document.querySelector('#fullName')
+const full_name = document.querySelector('#full_name')
 const email = document.querySelector('#email')
 const phone = document.querySelector('#phone')
 const message = document.querySelector('#message')
@@ -24,12 +24,12 @@ function isEmpty(str) {
   return !str.trim().length
 }
 
-function checkValidation() {
+function checkValidation(name_val, email_val, phone_val, message_val) {
   let error = ''
-  let name_val = full_name.value
-  let email_val = email.value
-  let phone_val = phone.value
-  let message_val = message.value
+  // let name_val = full_name.value
+  // let email_val = email.value
+  // let phone_val = phone.value
+  // let message_val = message.value
 
   if (
     isEmpty(name_val) ||
