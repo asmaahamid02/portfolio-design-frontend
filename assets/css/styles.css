@@ -436,7 +436,7 @@ small {
 }
 
 .table {
-  width: 90%;
+  width: 100%;
   /* padding: 1rem; */
   border: 1px solid #2c3e50;
 }
@@ -455,7 +455,7 @@ small {
 }
 
 td {
-  padding: 1.5rem 0;
+  padding: 1.5rem 0.75rem;
   text-align: center;
   background-color: #15967d;
   color: #fff;
@@ -468,6 +468,18 @@ td {
   /*tablets*/
   .card {
     width: 50%;
+  }
+
+  .table-head th {
+    width: 10%;
+    font-size: 0.95rem;
+  }
+
+  .table-head th:last-child {
+    width: 70%;
+  }
+  td {
+    font-size: 0.75rem;
   }
 }
 

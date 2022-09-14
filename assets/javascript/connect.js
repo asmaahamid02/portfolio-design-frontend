@@ -44,10 +44,19 @@ form.addEventListener('submit', (e) => {
   const data = {}
   let error = checkValidation(name_val, email_val, phone_val, message_val)
 
-  new_div.style.display = 'block'
   if (!isEmpty(error)) {
+    if (new_div.classList.contains('success')) {
+      new_div.classList.remove('success')
+    }
+    if (!new_div.classList.contains('error')) {
+      new_div.classList.add('error')
+    }
     new_div.textContent = error
-    // new_div.style.display = 'block'
+    new_div.style.display = 'block'
+
+    setTimeout(() => {
+      new_div.style.display = 'none'
+    }, 5000)
     return
   } else {
     console.log(api + 'save_message_api.php')
@@ -70,18 +79,21 @@ form.addEventListener('submit', (e) => {
           new_div.classList.remove('error')
           new_div.classList.add('success')
           new_div.textContent = 'Message sent successfully'
+          new_div.style.display = 'block'
           // close the div in 5 secs
-          window.setTimeout('closeHelpDiv(new_div);', 5000)
+          setTimeout(() => {
+            new_div.style.display = 'none'
+          }, 5000)
         } else {
+          new_div.classList.remove('success')
+          new_div.classList.add('error')
           new_div.textContent = 'Something went wrong, try again'
-          // close the div in 5 secs
-          window.setTimeout('closeHelpDiv(new_div);', 5000)
+          new_div.style.display = 'block'
+          setTimeout(() => {
+            new_div.style.display = 'none'
+          }, 5000)
         }
       })
       .catch((error) => console.error('Error:', error))
   }
 })
-
-function closeHelpDiv(element) {
-  element.style.display = ' none'
-}
