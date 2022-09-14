@@ -66,7 +66,7 @@ function checkValidation(name_val, email_val, phone_val, message_val) {
         number.startsWith('70')) &&
         number.length == 8)
     ) {
-      console.log('valid')
+      // console.log('valid')
     } else {
       error += 'Invalid number\r\n'
     }
@@ -78,13 +78,21 @@ function checkValidation(name_val, email_val, phone_val, message_val) {
     error += 'Message is short\r\n'
   }
 
-  if (!isEmpty(error)) {
-    new_div.textContent = error
-    new_div.style.display = 'block'
-    return false
-  } else {
-    new_div.textContent = ''
-    new_div.style.display = 'none'
-    return false
-  }
+  return error
+  // if (!isEmpty(error)) {
+  //   // new_div.textContent = error
+  //   // new_div.style.display = 'block'
+  //   return false
+  // } else {
+  //   // new_div.textContent = ''
+  //   // new_div.style.display = 'none'
+  //   return false
+  // }
 }
+
+let view_messages_btn = document.querySelector('#view-messages')
+
+view_messages_btn.addEventListener('click', () => {
+  window.location.href = '../view_messages.html'
+  // let data = getData()
+})
