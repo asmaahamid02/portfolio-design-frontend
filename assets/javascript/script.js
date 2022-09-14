@@ -8,17 +8,9 @@ const message = document.querySelector('#message')
 const contact_div = document.querySelector('#contact-head')
 
 new_div = document.createElement('div')
-// contact_div.appendChild(new_div)
 contact_div.parentNode.insertBefore(new_div, contact_div.nextSibling)
 new_div.classList.add('error')
 new_div.style.display = 'none'
-
-//validation
-
-//form submit
-// form.addEventListener('submit', (e) => {
-//   e.preventDefault()
-// })
 
 function isEmpty(str) {
   return !str.trim().length
@@ -26,11 +18,6 @@ function isEmpty(str) {
 
 function checkValidation(name_val, email_val, phone_val, message_val) {
   let error = ''
-  // let name_val = full_name.value
-  // let email_val = email.value
-  // let phone_val = phone.value
-  // let message_val = message.value
-
   if (
     isEmpty(name_val) ||
     isEmpty(email_val) ||
@@ -79,20 +66,11 @@ function checkValidation(name_val, email_val, phone_val, message_val) {
   }
 
   return error
-  // if (!isEmpty(error)) {
-  //   // new_div.textContent = error
-  //   // new_div.style.display = 'block'
-  //   return false
-  // } else {
-  //   // new_div.textContent = ''
-  //   // new_div.style.display = 'none'
-  //   return false
-  // }
 }
 
+//move to the messages page
 let view_messages_btn = document.querySelector('#view-messages')
 
 view_messages_btn.addEventListener('click', () => {
   window.location.href = '../view_messages.html'
-  // let data = getData()
 })
